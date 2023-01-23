@@ -21,7 +21,7 @@ class BotController extends Controller
 {
     public static function start(Update $update)
     {
-        $admins = [956158960, 5021858904];
+        $admins = [956158960, 5021858904, 407482241];
         FSM::update('login');
 
         if (in_array($update->message->from->id, $admins)) {
