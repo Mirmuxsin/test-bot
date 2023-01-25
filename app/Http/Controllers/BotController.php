@@ -177,6 +177,12 @@ Savol {savol2}
                     if ($key == 0) {
                         if (str_contains($line, 'test id ')) {
                             $test_id = explode('test id ', $line)[1];
+                            if (!Test::find($test_id)) {
+                                return Laragram::sendMessage([
+                                    'chat_id' => $update->message->from->id,
+                                    'text' => $test_id." id li test topilmadi!"
+                                ]);
+                            }
                         } else {
                             return Laragram::sendMessage([
                                 'chat_id' => $update->message->from->id,
