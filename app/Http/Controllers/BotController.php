@@ -44,7 +44,7 @@ Masalan: /newuser Ahmadjon parol001
 
 /newtest {savollarSoni} - Yangi test qo'shish
 savollarSoni - Har bir foydalanuvchiga tushadigan savollar soni
-Masalan: /newuser 10
+Masalan: /test 10
 
 /results {test_id} - Test natijalarini ko'rish
 /users - Barcha foydalanuvchilarni ko'rish
@@ -54,13 +54,13 @@ Test ga savollarni qo'shish:
 
 test id {test_id}
 
-savol: {savol}
+Savol {savol}
 +{togri variant 1}
 {variant 2}
 {variant 3}
 {variant 4}
 
-savol {savol2}
+Savol {savol2}
 {variant 1}
 +{togri variant 2}
 {variant 3}
