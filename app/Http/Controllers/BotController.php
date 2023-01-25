@@ -184,8 +184,8 @@ savol {savol2}
                             ]);
                         }
                     }
-                    if (str_contains($line, 'savol:')) {
-                        $savol = explode('savol:', $line)[1];
+                    if (str_contains($line, 'Savol ')) {
+                        $savol = explode('Savol', $line)[1];
                         $question = new Question();
                         $question->title = $line;
                         $question->test_id = $test_id;
