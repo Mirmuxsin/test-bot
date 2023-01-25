@@ -71,6 +71,12 @@ savol {savol2}
 
         if (str_contains($update->message->text, '/newuser ')) {
             $user_name = explode(' ', $update->message->text);
+            if (count($user_name) != 3) {
+                return Laragram::sendMessage([
+                    'chat_id' => $update->message->from->id,
+                    'text' => "Yangi userni quyidagi korinishda kiriting:\n\n/newuser Ism Parol"
+                ]);
+            }
             $user = new Student();
             $user->name = $user_name[1];
             $user->password = $user_name[2];
@@ -167,10 +173,18 @@ savol {savol2}
         if (str_contains($update->message->text, 'test id ')) {
             $explode = explode("\n\n", $update->message->text);
             foreach ($explode as $lines) {
-                foreach (explode("\n", $lines) as $line) {
-                    if (str_contains($line, 'test id ')) {
-                        $test_id = explode('test id ', $line)[1];
-                    } elseif (str_contains($line, 'savol:')) {
+                foreach (explode("\n", $lines) as $key => $line) {
+                    if ($key == 0) {
+                        if (str_contains($line, 'test id ')) {
+                            $test_id = explode('test id ', $line)[1];
+                        } else {
+                            return Laragram::sendMessage([
+                                'chat_id' => $update->message->from->id,
+                                'text' => "Xabarning eng tepasida test id ni biriktiring! Namuna:\n\ntest id {id}"
+                            ]);
+                        }
+                    }
+                    if (str_contains($line, 'savol:')) {
                         $savol = explode('savol:', $line)[1];
                         $question = new Question();
                         $question->title = $line;
