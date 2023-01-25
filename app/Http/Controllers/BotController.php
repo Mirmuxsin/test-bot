@@ -170,8 +170,8 @@ savol {savol2}
                 foreach (explode("\n", $lines) as $line) {
                     if (str_contains($line, 'test id ')) {
                         $test_id = explode('test id ', $line)[1];
-                    } elseif (str_contains($line, 'savol: ')) {
-                        $savol = explode('savol: ', $line)[1];
+                    } elseif (str_contains($line, 'savol:')) {
+                        $savol = explode('savol:', $line)[1];
                         $question = new Question();
                         $question->title = $line;
                         $question->test_id = $test_id;
