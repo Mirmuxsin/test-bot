@@ -183,10 +183,6 @@ Savol {savol2}
                                 'text' => $test_id." id li test topilmadi!"
                             ]);
                         }
-                        return Laragram::sendMessage([
-                            'chat_id' => $update->message->from->id,
-                            'text' => "Xabarning eng tepasida test id ni biriktiring! Namuna:\n\ntest id {id}"
-                        ]);
                     }
                     if (str_contains($line, 'Savol') and isset($test_id)) {
                         $savol = explode('Savol', $line)[1];
