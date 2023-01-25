@@ -187,19 +187,21 @@ Savol {savol2}
                     if (str_contains($line, 'Savol ')) {
                         $savol = explode('Savol', $line)[1];
                         $question = new Question();
-                        $question->title = $line;
+                        $question->title = $savol;
                         $question->test_id = $test_id;
                         $question->save();
                         $question_id = $question->id;
                     } else {
-                        $option = new Option();
-                        $option->text = $line;
-                        $option->question_id = $question_id;
-                        if (str_contains($line, "+")) {
-                            $option->is_true = true;
-                            $option->text = str_replace('+', '', $line);
+                        if (isset($question_id)) {
+                            $option = new Option();
+                            $option->text = $line;
+                            $option->question_id = $question_id;
+                            if (str_contains($line, "+")) {
+                                $option->is_true = true;
+                                $option->text = str_replace('+', '', $line);
+                            }
+                            $option->save();
                         }
-                        $option->save();
                     }
 
                 }
