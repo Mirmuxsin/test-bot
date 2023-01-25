@@ -174,22 +174,21 @@ Savol {savol2}
             $explode = explode("\n\n", $update->message->text);
             foreach ($explode as $lines) {
                 foreach (explode("\n", $lines) as $key => $line) {
-                    if ($key == 0) {
-                        if (str_contains($line, 'test id ')) {
-                            $test_id = explode('test id ', $line)[1];
-                            if (!Test::find($test_id)) {
-                                return Laragram::sendMessage([
-                                    'chat_id' => $update->message->from->id,
-                                    'text' => $test_id." id li test topilmadi!"
-                                ]);
-                            }
+
+                    if (str_contains($line, 'test id ')) {
+                        $test_id = explode('test id ', $line)[1];
+                        if (!Test::find($test_id)) {
                             return Laragram::sendMessage([
                                 'chat_id' => $update->message->from->id,
-                                'text' => "Xabarning eng tepasida test id ni biriktiring! Namuna:\n\ntest id {id}"
+                                'text' => $test_id." id li test topilmadi!"
                             ]);
                         }
+                        return Laragram::sendMessage([
+                            'chat_id' => $update->message->from->id,
+                            'text' => "Xabarning eng tepasida test id ni biriktiring! Namuna:\n\ntest id {id}"
+                        ]);
                     }
-                    if (str_contains($line, 'Savol')) {
+                    if (str_contains($line, 'Savol') and isset($test_id)) {
                         $savol = explode('Savol', $line)[1];
                         $question = new Question();
                         $question->title = $savol;
