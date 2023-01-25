@@ -184,7 +184,7 @@ Savol {savol2}
                             ]);
                         }
                     }
-                    if (str_contains($line, 'Savol ')) {
+                    if (str_contains($line, 'Savol')) {
                         $savol = explode('Savol', $line)[1];
                         $question = new Question();
                         $question->title = $savol;
