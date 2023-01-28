@@ -127,12 +127,16 @@ Savol {savol2}
                         } else {
                             $array[$question->student_id]['is_true'] = 1;
                         }
+                    } else {
+                        if (!isset($array[$question->student_id]['is_true'])) {
+                            $array[$question->student_id]['is_true'] = 0;
+                        }
                     }
                 }
             }
             $text = "Test id ".$id;
             foreach ($array as $item) {
-                $text .= "\n\n".$item['name']. "\nJami javoblar: ".$item['answers']."\nTogri javoblar: ".array_key_exists('is_true', $item) ? $item['is_true'] : 0;
+                $text .= "\n\n".$item['name']. "\nJami javoblar: ".$item['answers']."\nTogri javoblar: ".$item['is_true'] ?? 0;
             }
 
             return Laragram::sendMessage([
