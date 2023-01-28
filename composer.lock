@@ -1616,16 +1616,16 @@
         },
         {
             "name": "milly/laragram",
-            "version": "2.2.0",
+            "version": "2.2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Mirmuxsin/laragram.git",
-                "reference": "79b0fa454ad9a2b6669a422afc78e230b215fd80"
+                "reference": "221869ddd09c295fae3ae999c6a0e208c44a2d29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Mirmuxsin/laragram/zipball/79b0fa454ad9a2b6669a422afc78e230b215fd80",
-                "reference": "79b0fa454ad9a2b6669a422afc78e230b215fd80",
+                "url": "https://api.github.com/repos/Mirmuxsin/laragram/zipball/221869ddd09c295fae3ae999c6a0e208c44a2d29",
+                "reference": "221869ddd09c295fae3ae999c6a0e208c44a2d29",
                 "shasum": ""
             },
             "require": {
@@ -1659,7 +1659,7 @@
             "description": "Laravel package to develop telegram bot inside laravel project",
             "support": {
                 "issues": "https://github.com/Mirmuxsin/laragram/issues",
-                "source": "https://github.com/Mirmuxsin/laragram/tree/2.2.0"
+                "source": "https://github.com/Mirmuxsin/laragram/tree/2.2.0.1"
             },
             "funding": [
                 {
@@ -1667,7 +1667,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-12-22T12:53:06+00:00"
+            "time": "2023-01-27T11:24:31+00:00"
         },
         {
             "name": "monolog/monolog",

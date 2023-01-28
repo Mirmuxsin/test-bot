@@ -132,7 +132,7 @@ Savol {savol2}
             }
             $text = "Test id ".$id;
             foreach ($array as $item) {
-                $text .= "\n\n".$item['name']. "\nJami javoblar: ".$item['answers']."\nTogri javoblar: ".$item['is_true'] ?? 0;
+                $text .= "\n\n".$item['name']. "\nJami javoblar: ".$item['answers']."\nTogri javoblar: ".isset($item['is_true']) ? $item['is_true'] : 0;
             }
 
             return Laragram::sendMessage([
