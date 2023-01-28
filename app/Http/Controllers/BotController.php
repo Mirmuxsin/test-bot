@@ -291,12 +291,12 @@ Savol {savol2}
         $test = Test::latest()->first();
         $count = $test->count;
 
-        $answers = Answer::query()->where([
+        $questions = Question::query()->where([
             'student_id' => $student->id,
             'test_id' => $test->id
         ]);
 
-        if ($answers->count() <= $count) {
+        if ($questions->count() <= $count) {
 
             $question = $test->questions()->where([
                 'is_answered' => 0,
