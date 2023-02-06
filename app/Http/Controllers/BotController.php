@@ -237,7 +237,7 @@ Savol {savol2}
                 'text' => 'Foydalanuvchi topilmadi! Login va parolni tekshirib, qaytadan kiriting'
             ]);
         }
-        $student = $student->first();
+        $student = $student->firstOrFail();
         $student->telegram_id = $message->from->id;
         $student->save();
 
@@ -249,11 +249,11 @@ Savol {savol2}
     public static function test(CallbackQuery|Message $query)
     {
         if (isset($query->text)) {
-            $student = Student::where('telegram_id', $query->from->id)->first();
+            $student = Student::where('telegram_id', $query->from->id)->firstOrFail();
             return self::sendTest($student);
         }
 
-        $student = Student::where('telegram_id', $query->from->id)->first();
+        $student = Student::where('telegram_id', $query->from->id)->firstOrFail();
 
         $explode = explode(" ", $query->data);
         $question = Question::where([
